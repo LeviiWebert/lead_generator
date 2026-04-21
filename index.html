@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ronald 26 | Rénovation Énergétique</title>
+    <meta name="description"
+        content="Expertise et excellence en rénovation énergétique. Pompes à chaleur, isolation, panneaux solaires avec Ronald 26. DPE jusqu'à 100% financé.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Playfair+Display:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* Styles spécifiques au formulaire UI */
+        .form-area {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .big-step {
+            display: none;
+            animation: fadeIn 0.3s;
+        }
+
+        .big-step:first-of-type {
+            display: block;
+        }
+
+        .cadre {
+            border: 2px solid #e5e7eb;
+            padding: 1.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: #fafafa;
+            text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .cadre:hover,
+        .cadre--selected {
+            border-color: var(--primary);
+            background: #f0f7fd;
+        }
+
+        .cadre img {
+            max-width: 80px;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        .btn-style {
+            background: var(--secondary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 1.5rem;
+            display: inline-block;
+        }
+
+        .ds-step-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: #111827;
+        }
+
+        .ds-step-subtitle {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .input-sm {
+            padding: 0.8rem;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            width: 100%;
+            margin-top: 0.5rem;
+            font-family: var(--font);
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: -5px;
+        }
+
+        .col-12 {
+            width: 100%;
+            padding: 5px;
+        }
+
+        .col-6 {
+            width: 50%;
+            padding: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+            width: 100%;
+        }
+
+        .ds-badges {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin: 1rem 0;
+            font-size: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .ds-badge {
+            background: #e0edf9;
+            color: var(--primary);
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .progress {
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .percent {
+            height: 100%;
+            background: var(--secondary);
+            transition: width 0.3s;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+
+        .step.selected {
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .analyse-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .analyse-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-align: left;
+        }
+
+        #resume_projet .summary-list {
+            border: 1px solid #eee;
+            border-radius: 6px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            text-align: left;
+        }
+
+        /* Animation de chargement design */
+        .spinner {
+            border: 6px solid #e5e7eb;
+            border-top: 6px solid var(--primary);
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            animation: spin 1s linear infinite;
+            margin: 1rem auto 2rem auto;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="top-header">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo"><strong>Ronald 26</strong></div>
+            <div class="header-contact">Une question ? <strong>04 22 13 13 26</strong></div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <p style="color:var(--primary-light); font-weight:700; letter-spacing: 2px; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 0.5rem; font-family: var(--font);">Pompe à chaleur · Installation certifiée RGE</p>
+                <h1 style="color: #FFF; font-size: 3.2rem; line-height: 1.15; margin-bottom: 1rem; font-family: var(--font-heading); font-weight: 800;">Économisez jusqu'à 70% sur votre facture de chauffage</h1>
+                <p style="color:var(--primary-light); font-weight:700; font-size: 1.4rem; margin-bottom: 1.5rem;">Financement 100% pris en charge par l'État</p>
+                <ul class="hero-benefits mt-3" style="font-size:1.15rem; list-style: none; padding-left: 0; color: #FFF;">
+                    <li style="margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem;"><span style="color:var(--primary-light); font-size:1rem;">◆</span> Éligibilité vérifiée en 2 minutes</li>
+                    <li style="margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem;"><span style="color:var(--primary-light); font-size:1rem;">◆</span> MaPrimeRénov' · CEE · Éco-PTZ</li>
+                    <li style="margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem;"><span style="color:var(--primary-light); font-size:1rem;">◆</span> 30 ans d'expérience · Qualibat</li>
+                </ul>
+                <div style="display:inline-block; margin-top:1rem; border: 1px solid rgba(255,255,255,0.2); padding: 0.8rem 1.5rem; border-radius: 99px; background: rgba(0,0,0,0.2); backdrop-filter: blur(8px); color: #FFF; font-weight: 600; font-size:1.1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <span style="color: #faeb59; margin-right: 5px;">⭐</span> 4,9/5 sur 847 avis clients
+                </div>
+            </div>
+
+            <!-- NOUVEAU FORMULAIRE FOURNI PAR L'UTILISATEUR -->
+            <div id="sim-top">
+                <form method="post" action="#" id="form" name="form" class="form-area form-horizontal">
+                    <input type="hidden" name="campaignid" value="29">
+                    <div class="fieldset-wrapper">
+                        <fieldset class="">
+
+                            <div class="headerForm visible">
+                                <div class="container" style="padding:0">
+                                    <div class="progress">
+                                        <div class="percent" style="width: 10%;"></div>
+                                    </div>
+                                    <div class="steps">
+                                        <div class="step selected" id="0">
+                                            <p>Projet</p>
+                                        </div>
+                                        <div class="step" id="1">
+                                            <p>Analyse</p>
+                                        </div>
+                                        <div class="step" id="2">
+                                            <p>Financement</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <section id="chauffage" class="big-step" data-target="surface" data-progress="10">
+                                <div class="section_content">
+                                    <div class="text-center  parent-head">
+                                        <h1 class="ds-step-title">Quel est votre chauffage actuel ?</h1>
+                                        <p class="ds-step-subtitle">Sélectionnez votre mode de chauffage principal</p>
+                                    </div>
+                                    <div class="parent-content">
+                                        <div class="row mx-auto">
+                                            <div class="col-lg-4 col-md-4 col-6 mx-auto px-2" style="padding: 5px;">
+                                                <div class="text-center fioul">
+                                                    <div id="2" class="cadre cadre--icon next fioul"
+                                                        data-target="surface">
+                                                        <img width="165" height="183" class="svg"
+                                                            src="https://je-renove.net/pompe-a-chaleur/lan/022026.lungo.V5/images/form/chaudiere_fioul.svg"
+                                                            alt="Fioul">
+                                                        <div class="circle-text"><span class="cadre-text">Fioul</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-6 mx-auto px-2" style="padding: 5px;">
+                                                <div class="text-center gaz">
+                                                    <div id="3" class="cadre cadre--icon next gaz"
+                                                        data-target="surface">
+                                                        <img width="165" height="183" class="svg"
+                                                            src="https://je-renove.net/pompe-a-chaleur/lan/022026.lungo.V5/images/form/chaudiere_gaz.svg"
+                                                            alt="Gaz">
+                                                        <div class="circle-text"><span class="cadre-text">Gaz</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-6 mx-auto px-2" style="padding: 5px;">
+                                                <div class="text-center elec">
+                                                    <div id="1" class="cadre cadre--icon next autre"
+                                                        data-target="surface">
+                                                        <img width="165" height="183" class="svg"
+                                                            src="https://je-renove.net/pompe-a-chaleur/lan/022026.lungo.V5/images/form/chaudiere_autre.svg"
+                                                            alt="Autre">
+                                                        <div class="circle-text"><span class="cadre-text">Autre
+                                                                (Air/Air...)</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section id="surface" class="big-step" data-target="type_bien" data-progress="20">
+                                <div class="section_content text-center">
+                                    <h1 class="ds-step-title">Surface à chauffer</h1>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="cadre next"><span class="cadre-text">- de 100m²</span></div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="cadre next"><span class="cadre-text">Entre 100 et 200m²</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="cadre next"><span class="cadre-text">+ de 200m²</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section id="type_bien" class="big-step" data-progress="30">
+                                <div class="section_content text-center">
+                                    <h1 class="ds-step-title">Votre projet concerne :</h1>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="cadre cadre--icon next" data-target="situation">
+                                                <img width="100" height="100" class="svg"
+                                                    src="https://je-renove.net/pompe-a-chaleur/lan/022026.lungo.V5/images/form/maison-2.svg">
+                                                <span class="cadre-text">Maison</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="cadre cadre--icon next" data-target="situation">
+                                                <img width="100" height="100" class="svg"
+                                                    src="https://je-renove.net/pompe-a-chaleur/lan/022026.lungo.V5/images/form/appartement-2.svg">
+                                                <span class="cadre-text">Appartement</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section id="situation" class="big-step" data-target="codepostal" data-progress="50">
+                                <div class="section_content text-center">
+                                    <h1 class="ds-step-title">Vous êtes actuellement :</h1>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="cadre cadre--icon next">
+                                                <img width="100" height="100" class="svg"
+                                                    src="https://je-renove.net/pompe-a-chaleur/lan/022026.lungo.V5/images/form/proprietaire-2.svg"
+                                                    alt="Propriétaire">
+                                                <span class="cadre-text">Propriétaire</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="cadre cadre--icon next loca">
+                                                <img width="100" height="100" class="svg"
+                                                    src="https://je-renove.net/pompe-a-chaleur/lan/022026.lungo.V5/images/form/locataire-2.svg"
+                                                    alt="Locataire">
+                                                <span class="cadre-text">Locataire</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section id="codepostal" class="big-step" data-target="calcul_loading" data-progress="70">
+                                <div class="col-12 mx-auto text-center">
+                                    <h1 class="ds-step-title">Indiquez votre code postal</h1>
+                                    <p class="ds-step-subtitle">Nécessaire pour calculer les aides régionales</p>
+                                    <input id="cp" type="tel" maxlength="5" class="input-sm" name="cp"
+                                        placeholder="Votre code postal">
+                                    <div class="btn-style next">Voir mes résultats</div>
+                                </div>
+                            </section>
+
+                            <section id="calcul_loading" class="big-step" data-progress="75">
+                                <div class="section_content text-center py-4">
+                                    <div class="spinner"></div>
+                                    <h1 class="ds-step-title" style="color:var(--primary);">Analyse en cours...</h1>
+                                    <p class="ds-step-subtitle">Vérification de l'éligibilité aux aides de l'État pour
+                                        votre foyer.</p>
+                                </div>
+                            </section>
+
+                            <section id="analyse" class="big-step" data-target="contactname" data-progress="85">
+                                <div class="section_content text-center">
+                                    <div class="confirmation-icon" style="font-size: 64px; margin-bottom: 20px;">✅</div>
+                                    <h1 class="ds-step-title" style="color: var(--primary); font-weight: 800;">Analyse
+                                        prête</h1>
+                                    <div id="summary-list" class="summary-list"
+                                        style="margin-top: 1.5rem; background: #F0FDF4; border: 1px solid #BBF7D0; padding: 1.5rem; text-align: center; border-radius: 8px;">
+                                        <div style="margin-bottom: 0.5rem; color: #166534; font-size: 1.05rem;">🎯
+                                            <strong>Professionnels</strong> trouvés dans votre secteur.
+                                        </div>
+                                        <div style="color: #166534; font-size: 1.05rem;">💶 <strong>Subventions</strong>
+                                            potentiellement détectées.</div>
+                                    </div>
+                                    <div class="btn-style next"
+                                        style="margin-top:1.5rem; width:100%; font-size: 1.1rem;">Découvrir mes aides
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section id="contactname" data-target="contactemail" data-progress="90" class="big-step">
+                                <div class="section_content text-center">
+                                    <h1 class="ds-step-title">Vos coordonnées</h1>
+                                    <input id="prenom" name="prenom" type="text" class="input-sm" placeholder="Prénom">
+                                    <input id="nom" name="nom" type="text" class="input-sm" placeholder="Nom">
+                                    <div class="btn-style next">Suivant</div>
+                                </div>
+                            </section>
+
+                            <section id="contactemail" data-target="contactphone" data-progress="95" class="big-step">
+                                <div class="section_content text-center">
+                                    <h1 class="ds-step-title">Votre E-mail</h1>
+                                    <input id="email" class="input-sm" name="email" type="email" placeholder="Email">
+                                    <div class="btn-style next">Suivant</div>
+                                </div>
+                            </section>
+
+                            <section id="contactphone" data-target="confirmation_projet" data-progress="99"
+                                class="big-step">
+                                <div class="section_content text-center">
+                                    <h1 class="ds-step-title">Votre Téléphone</h1>
+                                    <p class="ds-step-subtitle">Pour finaliser votre dossier Ronald 26</p>
+                                    <input maxlength="10" class="input-sm" id="phone" name="phone" type="tel"
+                                        placeholder="Téléphone">
+                                    <div class="btn-style next">Valider la simulation</div>
+                                </div>
+                            </section>
+
+                            <section id="confirmation_projet" data-progress="100" class="big-step">
+                                <div class="col-12 mx-auto text-center">
+                                    <div class="confirmation-icon" style="font-size: 64px; margin-bottom: 20px;">✅</div>
+                                    <h1 class="ds-step-title" style="color: #28a745;">Dossier créé avec succès !</h1>
+                                    <p class="ds-step-subtitle">L'équipe Ronald 26 va vous recontacter très
+                                        prochainement.</p>
+                                </div>
+                            </section>
+
+                        </fieldset>
+                </form>
+            </div>
+        </div>
+
+        <!-- Wave Divider Bottom -->
+        <div class="custom-shape-divider-bottom"
+            style="position: absolute; bottom: 0; left: 0; width: 100%; overflow: hidden; line-height: 0;">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none"
+                style="position: relative; display: block; width: calc(100% + 1.3px); height: 60px;">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    fill="#f9f4ed"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Prestations Phares -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-4">
+                <span class="badge-dark outline-light d-inline-block mb-2">Découvrez nos offres</span>
+                <h2 class="section-title">Ronald 26 : Nos prestations phares</h2>
+                <p>Découvrez comment Ronald 26 peut vous aider à transformer votre habitat en un véritable havre d'éco
+                    efficacité.</p>
+            </div>
+            <div class="grid-3">
+                <div class="aid-card" style="padding:0; overflow:hidden;">
+                    <div
+                        style="height: 160px; width: 100%; background: url('https://images.unsplash.com/photo-1542385151-efd9000785a0?w=600&auto=format&fit=crop&q=80') center/cover;">
+                    </div>
+                    <div style="padding: 1.5rem;">
+                        <h3>Isolation thermique</h3>
+                        <p style="font-size:0.95rem; color:#4B5563;">Une maison bien isolée est la clé d’un confort
+                            optimal
+                            et de factures d’énergie réduites. Protégez-vous des températures extrêmes.</p>
+                    </div>
+                </div>
+                <div class="aid-card" style="padding:0; overflow:hidden;">
+                    <div
+                        style="height: 160px; width: 100%; background: url('https://tse1.mm.bing.net/th?q=pompe+a+chaleur+daikin+exterieur+installation+reelle+mur') center/cover;">
+                    </div>
+                    <div style="padding: 1.5rem;">
+                        <h3>Pompe à chaleur</h3>
+                        <p style="font-size:0.95rem; color:#4B5563;">Pose de pompes à chaleur (Daikin, Atlantic...). Un
+                            choix
+                            judicieux pour un chauffage et refroidissement écologique.</p>
+                    </div>
+                </div>
+                <div class="aid-card" style="padding:0; overflow:hidden;">
+                    <div
+                        style="height: 160px; width: 100%; background: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&auto=format&fit=crop&q=80') center/cover;">
+                    </div>
+                    <div style="padding: 1.5rem;">
+                        <h3>Panneaux solaires</h3>
+                        <p style="font-size:0.95rem; color:#4B5563;">Produisez votre électricité de manière verte.
+                            Réalisez
+                            d’importantes économies tout en contribuant à la préservation de l’environnement.</p>
+                    </div>
+                </div>
+                <div class="aid-card" style="padding:0; overflow:hidden;">
+                    <div
+                        style="height: 160px; width: 100%; background: url('https://images.unsplash.com/photo-1596524430615-b46475ddff6e?w=600&auto=format&fit=crop&q=80') center/cover;">
+                    </div>
+                    <div style="padding: 1.5rem;">
+                        <h3>Audit DPE</h3>
+                        <p style="font-size:0.95rem; color:#4B5563;">Valorisez votre bien immobilier. Nous vous guidons
+                            vers
+                            des solutions pour l’obtention d’un Diagnostic de Performance Énergétique favorable.</p>
+                    </div>
+                </div>
+                <div class="aid-card" style="padding:0; overflow:hidden;">
+                    <div
+                        style="height: 160px; width: 100%; background: url('https://images.unsplash.com/photo-1563461660947-507ef49e9c47?w=600&auto=format&fit=crop&q=80') center/cover;">
+                    </div>
+                    <div style="padding: 1.5rem;">
+                        <h3>Éclairage LED</h3>
+                        <p style="font-size:0.95rem; color:#4B5563;">Éclairez mieux en consommant moins. Passez à la LED
+                            avec Ronald 26 pour une efficacité énergétique inégalée.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POURQUOI CHOISIR RONALD 26 -->
+    <section class="trust-bar">
+        <div class="container">
+            <div class="text-center text-white mb-5">
+                <h2 style="color:white; font-size: 2.2rem;">Pourquoi choisir Ronald 26 ?</h2>
+                <p>Expertise certifiée pour des projets réussis. Notre mission : transformer votre habitat avec
+                    expertise et passion.</p>
+            </div>
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <img src="https://tse3.mm.bing.net/th?q=Logo+Qualibat+officiel" alt="Qualibat"
+                        style="width: 80px; height: 80px; object-fit: contain; margin-bottom: 1rem; border-radius: 8px; background:white; padding:5px;">
+                    <h4 style="font-size:1.2rem;">Entreprise certifiée Qualibat</h4>
+                </div>
+                <div class="trust-item">
+                    <img src="https://tse1.mm.bing.net/th?q=Logo+RGE+Reconnu+Garant+Environnement+officiel" alt="RGE"
+                        style="width: 80px; height: 80px; object-fit: contain; margin-bottom: 1rem; border-radius: 8px; background:white; padding:5px;">
+                    <h4 style="font-size:1.2rem;">Entreprise RGE</h4>
+                    <span style="color:#D1D5DB;">Reconnue garante environnement</span>
+                </div>
+                <div class="trust-item">
+                    <img src="https://tse2.mm.bing.net/th?q=Entreprise+familiale+artisan" alt="Familiale"
+                        style="width: 80px; height: 80px; object-fit: contain; margin-bottom: 1rem; border-radius: 8px;">
+                    <h4 style="font-size:1.2rem;">Entreprise familiale</h4>
+                    <span style="color:#D1D5DB;">De père en fils depuis plus de 30 ans</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINANCER VOTRE RENOVATION -->
+    <section class="py-5">
+        <div class="container">
+            <div class="example-box mx-auto text-center" style="max-width:900px;">
+                <h2 class="section-title">Financer votre rénovation énergétique</h2>
+                <p style="color:#4B5563; font-size:1.1rem; margin-bottom: 2rem;">
+                    Facilitez votre financement grâce à des aides attrayantes. Avec Ronald 26 vous pouvez bénéficier de
+                    toutes les aides financières.<br><br>
+                    <strong>Et ce n’est pas tout ! Ronald 26 se charge de l’avance de ces aides.</strong><br>
+                    Ainsi, vous ne réglez que la différence, simplifiant ainsi votre processus de rénovation.
+                </p>
+
+                <div class="grid-3 text-left">
+                    <div class="review-card" style="box-shadow:0 4px 10px rgba(0,0,0,0.05); border:none;">
+                        <div style="display:flex; align-items:center; margin-bottom:1rem;">
+                            <img src="https://tse1.mm.bing.net/th?q=Logo+MaPrimeRenov+officiel+france"
+                                alt="MaPrimeRénov" style="height: 40px; margin-right: 15px; object-fit: contain;">
+                            <h3 style="color:var(--primary); font-size:1.2rem; margin:0;">MaPrimeRénov’</h3>
+                        </div>
+                        <p style="font-size:0.9rem;">L’aide à la rénovation énergétique qui s’adresse à tous
+                            (propriétaires occupants ou bailleurs), en maison ou appartement.</p>
+                    </div>
+                    <div class="review-card" style="box-shadow:0 4px 10px rgba(0,0,0,0.05); border:none;">
+                        <div style="display:flex; align-items:center; margin-bottom:1rem;">
+                            <img src="https://tse2.mm.bing.net/th?q=Logo+ANAH+officiel" alt="ANAH"
+                                style="height: 40px; margin-right: 15px; object-fit: contain;">
+                            <h3 style="color:var(--primary); font-size:1.2rem; margin:0;">ANAH</h3>
+                        </div>
+                        <p style="font-size:0.9rem;">L'Agence nationale de l’habitat pour réaliser des travaux
+                            d’amélioration de l’habitat.</p>
+                    </div>
+                    <div class="review-card" style="box-shadow:0 4px 10px rgba(0,0,0,0.05); border:none;">
+                        <div style="display:flex; align-items:center; margin-bottom:1rem;">
+                            <img src="https://tse3.mm.bing.net/th?q=Logo+CEE+certificats+economies+energie" alt="CEE"
+                                style="height: 40px; margin-right: 15px; object-fit: contain;">
+                            <h3 style="color:var(--primary); font-size:1.2rem; margin:0;">CEE</h3>
+                        </div>
+                        <p style="font-size:0.9rem;">Les certificats d’économies d’énergie pour engager des travaux
+                            écologiques.</p>
+                    </div>
+                    <div class="review-card" style="box-shadow:0 4px 10px rgba(0,0,0,0.05); border:none;">
+                        <div style="display:flex; align-items:center; margin-bottom:1rem;">
+                            <img src="https://tse1.mm.bing.net/th?q=Logo+Eco+PTZ+pret+taux+zero" alt="Éco-PTZ"
+                                style="height: 40px; margin-right: 15px; object-fit: contain;">
+                            <h3 style="color:var(--primary); font-size:1.2rem; margin:0;">Éco-PTZ</h3>
+                        </div>
+                        <p style="font-size:0.9rem;">Un prêt sans frais d’intérêt, nommé éco-PTZ, est à votre
+                            disposition.</p>
+                    </div>
+                    <div class="review-card"
+                        style="box-shadow:0 4px 10px rgba(0,0,0,0.05); border:none; grid-column: span 2;">
+                        <div style="display:flex; align-items:center; margin-bottom:1rem;">
+                            <img src="https://tse2.mm.bing.net/th?q=Map+france+region+departement"
+                                alt="Aides régionales" style="height: 40px; margin-right: 15px; object-fit: contain;">
+                            <h3 style="color:var(--primary); font-size:1.2rem; margin:0;">Aides régionales
+                            </h3>
+                        </div>
+                        <p style="font-size:0.9rem;">Ronald 26 vous accompagne pour identifier les aides disponibles au
+                            niveau départemental et régional.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOUS SOMMES A VOS COTES -->
+    <section class="py-5 bg-light">
+        <div class="container text-center">
+            <h2 class="section-title mb-5">L'entreprise Ronald 26 : Nous sommes à vos côtés</h2>
+
+            <div class="grid-3" style="grid-template-columns: 1fr 1fr;">
+                <div class="step-card" style="padding-top:2rem;">
+                    <h3 style="color:var(--primary);">Pour les particuliers propriétaires</h3>
+                    <p style="color:#4B5563;">Que vous souhaitiez améliorer le confort de votre maison ou augmenter sa
+                        valeur grâce à une meilleure performance énergétique, Ronald 26 est le partenaire idéal pour
+                        transformer votre vision en réalité.</p>
+                </div>
+                <div class="step-card" style="padding-top:2rem;">
+                    <h3 style="color:var(--primary);">Pour les copropriétés et syndics dès 2024</h3>
+                    <p style="color:#4B5563;">Préparez-vous à révolutionner les parties communes avec des solutions
+                        d’isolation optimales. Ronald 26 élargit ses services pour répondre aux besoins spécifiques des
+                        résidences collectives.</p>
+                </div>
+            </div>
+            <div class="mt-4">
+                <strong>Particulier ou syndic, passez au vert dès maintenant !</strong><br>
+                Ronald 26 intervient sur tout le bassin méditerranéen ainsi que sur toute la France. <br>Intervention
+                rapide et efficace, garantissant une proximité sans pareil.
+            </div>
+        </div>
+    </section>
+
+    <!-- Foter Agences -->
+    <footer class="main-footer" style="padding-top: 2rem;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 style="color:#FFF; font-size:2rem; margin-bottom: 0.5rem;">Ronald 26 à votre service</h2>
+                <h3 style="color:var(--secondary); font-size:2.5rem;">04 22 13 13 26</h3>
+            </div>
+
+            <div class="grid-4"
+                style="border-top:1px solid #374151; border-bottom:1px solid #374151; padding: 2rem 0; margin-bottom: 2rem;">
+                <div>
+                    <h3 style="color:#FFF; font-size:1.1rem;">📍 Agence de Cannes</h3>
+                    <p>131 Boulevard de La République<br>06400 Cannes</p>
+                    <p>04.22.13.13.26<br>07.44.93.47.03</p>
+                </div>
+                <div>
+                    <h3 style="color:#FFF; font-size:1.1rem;">📍 Agence du Cannet</h3>
+                    <p>98 bd Sadi Carnot<br>06110 Le Cannet</p>
+                    <p>04.48.26.13.13<br>07.44.93.47.03</p>
+                </div>
+                <div>
+                    <h3 style="color:#FFF; font-size:1.1rem;">📍 Agence de Nice</h3>
+                    <p>Régie Ronald26 Eco Bio Habitat.fr<br>470 promenade des anglais, 06203 Nice</p>
+                    <p>04.22.13.13.26<br>07.44.93.47.03</p>
+                </div>
+                <div>
+                    <h3 style="color:#FFF; font-size:1.1rem;">📍 Agence de Bagneux</h3>
+                    <p>108 avenue Aristide Briand<br>92220 Bagneux</p>
+                    <p>01.44.75.48.35<br>07.44.93.47.03</p>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between" style="font-size:0.85rem; flex-wrap:wrap; gap:1rem;">
+                <div style="display:flex; gap: 1rem;">
+                    <a href="#">Politique de confidentialité</a> |
+                    <a href="#">Mentions légales</a> |
+                    <a href="#">CGV</a>
+                </div>
+                <div>Facebook | Youtube</div>
+                <div>© 2026 Ronald 26 x Je-renove.net</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
