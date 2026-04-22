@@ -6,7 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // URL du web-hook Google Sheets (à configurer comme dans le guide)
-const GOOGLE_SCRIPT_URL = 'VOTRE_URL_GOOGLE_APPS_SCRIPT_ICI';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzGcqo99nEV-o4CsfabkzFGYeUyvKo6XSf9SQ4iFFWxmSSkaaKW-zG6gQfZn14qm-WSYA/exec';
 
 // Middleware
 app.use(cors());
@@ -50,20 +50,20 @@ app.post('/api/leads', async (req, res) => {
         // 2. Transfert vers Google Sheets au travers du backend de façon ultra-sécurisée !
         // Préparation du FormData (x-www-form-urlencoded format native from node fetch)
         const payload = new URLSearchParams();
-        payload.append('Prenom', prenom);
-        payload.append('Nom', nom);
-        payload.append('Email', email);
-        payload.append('Telephone', phone);
-        payload.append('CodePostal', cp);
-        
+        payload.append('prenom', prenom);
+        payload.append('nom', nom);
+        payload.append('email', email);
+        payload.append('telephone', phone);
+        payload.append('codepostal', cp);
+
         // Ajout des informations du simulateur
-        payload.append('Chauffage', sanitizeInput(data.chauffage) || 'Non spécifié');
-        payload.append('Surface', sanitizeInput(data.surface) || 'Non spécifié');
-        payload.append('TypeBien', sanitizeInput(data.type_bien) || 'Non spécifié');
-        payload.append('Jardin', sanitizeInput(data.jardin_dispo) || 'Non spécifié');
-        payload.append('Emetteur', sanitizeInput(data.emetteur) || 'Non spécifié');
-        payload.append('Situation', sanitizeInput(data.situation) || 'Non spécifié');
-        payload.append('Date', new Date().toLocaleString('fr-FR'));
+        payload.append('chauffage', sanitizeInput(data.chauffage) || 'Non spécifié');
+        payload.append('surface', sanitizeInput(data.surface) || 'Non spécifié');
+        payload.append('type_bien', sanitizeInput(data.type_bien) || 'Non spécifié');
+        payload.append('jardin', sanitizeInput(data.jardin_dispo) || 'Non spécifié');
+        payload.append('emetteur', sanitizeInput(data.emetteur) || 'Non spécifié');
+        payload.append('situation', sanitizeInput(data.situation) || 'Non spécifié');
+        payload.append('date', new Date().toLocaleString('fr-FR'));
 
         if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== 'VOTRE_URL_GOOGLE_APPS_SCRIPT_ICI') {
             const sheetResponse = await fetch(GOOGLE_SCRIPT_URL, {
@@ -81,7 +81,7 @@ app.post('/api/leads', async (req, res) => {
 
         // 3. Réponse avec succès si tout c'est bien passé
         res.status(200).json({ success: true, message: 'Le projet a été validé avec succès.' });
-        
+
     } catch (error) {
         console.error('❌ Erreur Critique Serveur :', error);
         res.status(500).json({ error: 'Erreur interne du serveur lors du traitement de la demande.' });
