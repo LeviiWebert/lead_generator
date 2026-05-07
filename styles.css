@@ -5,8 +5,8 @@
     --secondary-hover: #a0852a; /* Dark Gold CTA */
     --dark: #0a1f19;
     --light: #f9f4ed; /* Cream */
-    --font-heading: 'Playfair Display', serif;
-    --font: 'DM Sans', sans-serif;
+    --font-heading: 'Nunito', sans-serif;
+    --font: 'Nunito', sans-serif;
 }
 
 * {
@@ -23,6 +23,7 @@ body {
 }
 
 h1, h2, h3, h4 { color: var(--primary); font-weight: 700; font-family: var(--font-heading); }
+fieldset { border: none; padding: 0; margin: 0; }
 a { text-decoration: none; color: inherit; }
 
 .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
@@ -47,6 +48,7 @@ a { text-decoration: none; color: inherit; }
 
 /* Header */
 .top-header { padding: 1.5rem 0; border-bottom: 1px solid #E5E7EB; background: #FFF; }
+.header-content { display: flex; justify-content: space-between; align-items: center; }
 .logo { font-size: 1.5rem; font-weight: 900; color: var(--primary); }
 .header-contact { font-size: 1.1rem; color: #4B5563; }
 .header-contact strong { color: var(--primary); font-size: 1.2rem; }
@@ -159,6 +161,9 @@ a { text-decoration: none; color: inherit; }
 }
 @media (max-width: 768px) {
     .stat-row { flex-direction: column; text-align: center; gap: 0.5rem; }
+    .header-content { flex-direction: column; text-align: center; gap: 0.8rem; justify-content: center; align-items: center; }
+    .example-box { padding: 1.5rem; }
+    .grid-3, .grid-4 { grid-template-columns: 1fr; }
 }
 
 .mx-auto { margin-left: auto !important; margin-right: auto !important; }

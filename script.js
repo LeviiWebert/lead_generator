@@ -29,6 +29,12 @@ document.addEventListener('DOMContentLoaded', () => {
             // Détection de l'étape de validation finale (bouton "Je valide ma simulation")
             if(currentSection.id === 'contactphone' && this.id !== 'back-btn') {
                 
+                const rgpdCheckbox = document.getElementById('rgpd');
+                if (rgpdCheckbox && !rgpdCheckbox.checked) {
+                    alert("Pour finaliser votre demande, vous devez accepter notre politique de confidentialité.");
+                    return; // Stoppe l'exécution si non coché
+                }
+
                 const btnSubmit = this;
                 const originalText = btnSubmit.innerText;
                 btnSubmit.innerText = "Validation en cours...";
@@ -66,6 +72,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     
                     // Succès du Backend! On passe à la page de confirmation
+                    if (typeof fbq === 'function') {
+                        fbq('track', 'Lead');
+                    }
                     moveToTarget(currentSection, currentSection.getAttribute('data-target') || 'confirmation_projet');
                     
                 } catch(err) {
