@@ -51,8 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 };
 
                 try {
-                    // Envoi des données vers le Backend Node.js
-                    const response = await fetch('/api/leads', {
+                    // Envoi des données vers le Backend PHP (IONOS)
+                    const response = await fetch('submit.php', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(leadData)
