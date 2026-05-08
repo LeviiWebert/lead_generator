@@ -222,6 +222,7 @@
             s.parentNode.insertBefore(t, s)
         }(window, document, 'script',
             'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('consent', 'revoke'); // GDPR: No tracking until consent
         fbq('init', '1370970478221445');
         fbq('track', 'PageView');
     </script>
@@ -302,7 +303,7 @@
                                 data-target="surface" data-progress="10">
                                 <div class="section_content">
                                     <div class="text-center  parent-head">
-                                        <h1 class="ds-step-title">Quelle est votre chaudière actuelle ?</h1>
+                                        <h2 class="ds-step-title">Quelle est votre chaudière actuelle ?</h2>
                                         <p class="ds-step-subtitle"
                                             style="font-size: 1.15rem; line-height: 1.5; color: #4B5563;">
                                             Remplacement de chauffage par pompe à chaleur<br>
@@ -353,7 +354,7 @@
                             <section style="color: #166534; font-size: 1.05rem;" id="surface" class="big-step"
                                 data-target="type_bien" data-progress="20">
                                 <div class="section_content text-center">
-                                    <h1 class="ds-step-title">Surface à chauffer</h1>
+                                    <h2 class="ds-step-title">Surface à chauffer</h2>
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="cadre next"><span class="cadre-text">Avez-vous plus de 90 m²
@@ -370,7 +371,7 @@
                             <section style="color: #166534; font-size: 1.05rem;" id="type_bien" class="big-step"
                                 data-progress="30">
                                 <div class="section_content text-center">
-                                    <h1 class="ds-step-title">Votre projet concerne :</h1>
+                                    <h2 class="ds-step-title">Votre projet concerne :</h2>
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="cadre cadre--icon next" data-target="situation">
@@ -392,7 +393,7 @@
                             <section style="color: #166534; font-size: 1.05rem;" id="situation" class="big-step"
                                 data-target="codepostal" data-progress="50">
                                 <div class="section_content text-center">
-                                    <h1 class="ds-step-title">Vous êtes actuellement :</h1>
+                                    <h2 class="ds-step-title">Vous êtes actuellement :</h2>
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="cadre cadre--icon next">
@@ -414,7 +415,7 @@
 
                             <section id="codepostal" class="big-step" data-target="calcul_loading" data-progress="70">
                                 <div class="col-12 mx-auto text-center">
-                                    <h1 class="ds-step-title">Indiquez votre code postal</h1>
+                                    <h2 class="ds-step-title">Indiquez votre code postal</h2>
                                     <p class="ds-step-subtitle">Nécessaire pour calculer les aides régionales</p>
                                     <input id="cp" type="tel" maxlength="5" class="input-sm" name="cp"
                                         placeholder="Votre code postal">
@@ -425,7 +426,7 @@
                             <section id="calcul_loading" class="big-step" data-progress="75">
                                 <div class="section_content text-center py-4">
                                     <div class="spinner"></div>
-                                    <h1 class="ds-step-title" style="color:var(--primary);">Analyse en cours...</h1>
+                                    <h2 class="ds-step-title" style="color:var(--primary);">Analyse en cours...</h2>
                                     <p class="ds-step-subtitle">Vérification de l'éligibilité aux aides de l'État pour
                                         votre foyer.</p>
                                 </div>
@@ -451,7 +452,7 @@
 
                             <section id="contactname" data-target="contactemail" data-progress="90" class="big-step">
                                 <div class="section_content text-center">
-                                    <h1 class="ds-step-title">Vos coordonnées</h1>
+                                    <h2 class="ds-step-title">Vos coordonnées</h2>
                                     <input id="prenom" name="prenom" type="text" class="input-sm" placeholder="Prénom">
                                     <input id="nom" name="nom" type="text" class="input-sm" placeholder="Nom">
                                     <div class="btn-style next">Suivant</div>
@@ -460,7 +461,7 @@
 
                             <section id="contactemail" data-target="contactphone" data-progress="95" class="big-step">
                                 <div class="section_content text-center">
-                                    <h1 class="ds-step-title">Votre E-mail</h1>
+                                    <h2 class="ds-step-title">Votre E-mail</h2>
                                     <input id="email" class="input-sm" name="email" type="email" placeholder="Email">
                                     <div class="btn-style next">Suivant</div>
                                 </div>
@@ -469,7 +470,7 @@
                             <section id="contactphone" data-target="confirmation_projet" data-progress="99"
                                 class="big-step">
                                 <div class="section_content text-center">
-                                    <h1 class="ds-step-title">Votre Téléphone</h1>
+                                    <h2 class="ds-step-title">Votre Téléphone</h2>
                                     <p class="ds-step-subtitle">Pour finaliser votre dossier Ronald 26 x YW consulting
                                     </p>
                                     <input maxlength="10" class="input-sm" id="phone" name="phone" type="tel"
@@ -755,6 +756,20 @@
         </div>
         -->
     </footer>
+
+    <!-- Bandeau Cookie RGPD -->
+    <div id="cookie-banner" style="display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: #1F2937; color: #FFF; padding: 1.2rem; z-index: 9999; box-shadow: 0 -10px 25px rgba(0,0,0,0.15);">
+        <div class="container" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;">
+            <div style="font-size: 0.95rem; max-width: 800px; flex: 1; min-width: 250px;">
+                <strong>🍪 Respect de votre vie privée</strong><br>
+                Nous utilisons le Pixel Meta pour analyser notre trafic. Conformément au RGPD, ce suivi est désactivé par défaut. Acceptez-vous de partager ces données pour nous aider à améliorer nos services ?
+            </div>
+            <div style="display: flex; gap: 1rem; flex-shrink: 0;">
+                <button id="btn-refuser-cookies" style="background: transparent; border: 1px solid #FFF; color: #FFF; padding: 0.5rem 1.2rem; border-radius: 6px; cursor: pointer; font-weight: 600;">Refuser</button>
+                <button id="btn-accepter-cookies" style="background: var(--primary-light); border: none; color: #1F2937; padding: 0.5rem 1.2rem; border-radius: 6px; cursor: pointer; font-weight: 700;">Accepter</button>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js?v=2"></script>
 </body>

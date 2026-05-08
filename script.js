@@ -2,6 +2,35 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- RGPD: Gestion du consentement Cookie (Pixel Facebook) ---
+    const cookieBanner = document.getElementById('cookie-banner');
+    const btnAccept = document.getElementById('btn-accepter-cookies');
+    const btnReject = document.getElementById('btn-refuser-cookies');
+    
+    // Vérifier le choix précédent
+    const consentStatus = localStorage.getItem('rgpd_consent');
+    if (!consentStatus && cookieBanner) {
+        cookieBanner.style.display = 'block'; // Afficher le bandeau si aucun choix fait
+    } else if (consentStatus === 'granted') {
+        if (typeof fbq === 'function') fbq('consent', 'grant'); // Activer le pixel
+    }
+
+    if (btnAccept && cookieBanner) {
+        btnAccept.addEventListener('click', () => {
+            localStorage.setItem('rgpd_consent', 'granted');
+            cookieBanner.style.display = 'none';
+            if (typeof fbq === 'function') fbq('consent', 'grant');
+        });
+    }
+
+    if (btnReject && cookieBanner) {
+        btnReject.addEventListener('click', () => {
+            localStorage.setItem('rgpd_consent', 'denied');
+            cookieBanner.style.display = 'none';
+        });
+    }
+    // -----------------------------------------------------------
+
     const nextButtons = document.querySelectorAll('.next');
     const progressBar = document.querySelector('.progress .percent');
 
