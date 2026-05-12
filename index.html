@@ -233,6 +233,11 @@
 </head>
 
 <body>
+    <!-- Bandeau d'urgence -->
+    <div class="urgency-bar">
+        ⏱️ <strong>Aides MaPrimeRénov' 2026</strong> · Quotas CEE limités · Vérifiez votre éligibilité gratuitement en 2 min
+    </div>
+
     <header class="top-header">
         <div class="container header-content">
             <div class="logo" style="display: flex; align-items: center; gap: 12px;">
@@ -506,6 +511,35 @@
         </div>
     </section>
 
+    <!-- Bandeau logos officiels (preuve gouvernementale) -->
+    <section class="official-strip">
+        <div class="container">
+            <p class="official-strip-title">Partenaire des dispositifs officiels de l'État</p>
+            <div class="official-logos">
+                <div class="official-logo">
+                    <span class="ol-top">Aide officielle</span>
+                    <span class="ol-main">MaPrimeRénov'</span>
+                </div>
+                <div class="official-logo">
+                    <span class="ol-top">Certification</span>
+                    <span class="ol-main">RGE Qualibat</span>
+                </div>
+                <div class="official-logo">
+                    <span class="ol-top">Dispositif</span>
+                    <span class="ol-main">CEE - C2E</span>
+                </div>
+                <div class="official-logo">
+                    <span class="ol-top">Prêt</span>
+                    <span class="ol-main">Éco-PTZ</span>
+                </div>
+                <div class="official-logo">
+                    <span class="ol-top">Agence nationale</span>
+                    <span class="ol-main">Anah</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Prestations Phares -->
     <section class="py-5 bg-light">
         <div class="container">
@@ -581,126 +615,411 @@
         </div>
     </section>
 
-    <!-- FINANCER VOTRE RENOVATION -->
+    <!-- COMPARATIF FACTURE AVANT / APRÈS -->
     <section class="py-5">
         <div class="container">
-            <div class="example-box mx-auto text-center" style="max-width:900px;">
-                <h2 class="section-title">Les Aides Financières en 2026</h2>
-                <p style="color:#4B5563; font-size:1.1rem; margin-bottom: 2rem;">
-                    Bénéficiez jusqu'à <strong>9 500€ d'aides</strong> de l'État pour le remplacement de votre chaudière au fioul ou gaz par une Pompe à Chaleur.
+            <div class="text-center mb-4">
+                <span class="badge-dark d-inline-block mb-2">Économies réelles</span>
+                <h2 class="section-title">Ce que vous payez aujourd'hui · Ce que vous paierez demain</h2>
+                <p style="color:#4B5563; font-size:1.05rem; max-width: 650px; margin: 1rem auto 0;">
+                    Exemple pour une maison de 110 m² chauffée au fioul, occupants : 4 personnes.
                 </p>
+            </div>
 
-                <div class="grid-3 text-left">
-                    <div class="review-card" style="box-shadow:0 4px 10px rgba(0,0,0,0.05); border:none; border-left: 4px solid var(--primary-light);">
-                        <div style="display:flex; align-items:center; margin-bottom:1rem; color: var(--primary);">
-                            <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
-                            <h3 style="font-size:1.2rem; margin:0; margin-left: 10px;">MaPrimeRénov'</h3>
-                        </div>
-                        <p style="font-size:0.9rem;">L’aide principale de l'État, calculée selon vos revenus. Peut atteindre jusqu'à 4 000€.</p>
+            <div class="compare-wrap">
+                <div class="compare-card is-before">
+                    <div class="cmp-label">Avant — Chaudière fioul</div>
+                    <div class="cmp-amount">2 480 €</div>
+                    <div class="cmp-period">/ an de chauffage</div>
+                    <div class="cmp-detail">
+                        ❌ Énergie fossile<br>
+                        ❌ Prix du fioul instable<br>
+                        ❌ Entretien lourd
                     </div>
-                    <div class="review-card" style="box-shadow:0 4px 10px rgba(0,0,0,0.05); border:none; border-left: 4px solid var(--primary-light);">
-                        <div style="display:flex; align-items:center; margin-bottom:1rem; color: var(--primary);">
-                            <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
-                            <h3 style="font-size:1.2rem; margin:0; margin-left: 10px;">Primes CEE</h3>
-                        </div>
-                        <p style="font-size:0.9rem;">Jusqu'à 5 000€ pour le remplacement d'une vieille chaudière polluante.</p>
+                </div>
+                <div class="compare-arrow">→</div>
+                <div class="compare-card is-after">
+                    <div class="cmp-label">Après — Pompe à Chaleur</div>
+                    <div class="cmp-amount">740 €</div>
+                    <div class="cmp-period">/ an de chauffage</div>
+                    <div class="cmp-detail">
+                        ✅ Énergie renouvelable<br>
+                        ✅ Tarif électrique stable<br>
+                        ✅ Confort été comme hiver
                     </div>
-                    <div class="review-card" style="box-shadow:0 4px 10px rgba(0,0,0,0.05); border:none; border-left: 4px solid var(--primary-light);">
-                        <div style="display:flex; align-items:center; margin-bottom:1rem; color: var(--primary);">
-                            <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
-                            <h3 style="font-size:1.2rem; margin:0; margin-left: 10px;">Éco-PTZ</h3>
-                        </div>
-                        <p style="font-size:0.9rem;">Un prêt à taux zéro pour financer votre reste à charge sans aucun intérêt.</p>
-                    </div>
+                </div>
+            </div>
+
+            <div class="compare-saving">
+                💰 <strong>1 740 €</strong> économisés chaque année · soit <strong>17 400 €</strong> sur 10 ans
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Inline 1 -->
+    <section class="cta-inline">
+        <div class="container">
+            <h3>Combien VOUS allez économiser ?</h3>
+            <p>Réponse en 2 minutes · Sans engagement · 100% gratuit</p>
+            <a href="#sim-top" class="btn-cta">Calculer mes économies →</a>
+            <div class="cta-trust">🔒 Vos données restent confidentielles · Aucune carte bancaire demandée</div>
+        </div>
+    </section>
+
+    <!-- FINANCER VOTRE RENOVATION (REFONTE COMPLÈTE) -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-4">
+                <span class="badge-dark d-inline-block mb-2">Aides de l'État · Édition 2026</span>
+                <h2 class="section-title">Jusqu'à 12 500 € d'aides cumulables</h2>
+                <p style="color:#4B5563; font-size:1.1rem; max-width: 720px; margin: 1rem auto 0;">
+                    L'État finance jusqu'à <strong>100% du coût</strong> de votre pompe à chaleur. Voici les montants auxquels vous avez droit selon votre situation.
+                </p>
+            </div>
+
+            <!-- Tableau des aides MaPrimeRénov' par tranche de revenus -->
+            <div class="aides-table-wrap">
+                <table class="aides-table">
+                    <thead>
+                        <tr>
+                            <th>Profil de revenus</th>
+                            <th>MaPrimeRénov'</th>
+                            <th>Prime CEE</th>
+                            <th>Total possible</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="revenue-tag tag-pink">Très modestes</span></td>
+                            <td class="montant">5 000 €</td>
+                            <td class="montant">5 500 €</td>
+                            <td class="montant">10 500 €</td>
+                        </tr>
+                        <tr>
+                            <td><span class="revenue-tag tag-purple">Modestes</span></td>
+                            <td class="montant">4 000 €</td>
+                            <td class="montant">5 500 €</td>
+                            <td class="montant">9 500 €</td>
+                        </tr>
+                        <tr>
+                            <td><span class="revenue-tag tag-yellow">Intermédiaires</span></td>
+                            <td class="montant">3 000 €</td>
+                            <td class="montant">3 500 €</td>
+                            <td class="montant">6 500 €</td>
+                        </tr>
+                        <tr>
+                            <td><span class="revenue-tag tag-blue">Supérieurs</span></td>
+                            <td class="montant">—</td>
+                            <td class="montant">3 500 €</td>
+                            <td class="montant">3 500 €</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="text-align:center; font-size:0.85rem; color:#6B7280; margin-top:0.8rem;">
+                Montants indicatifs pour une PAC air/eau remplaçant une chaudière fioul/gaz. Cumulable avec l'Éco-PTZ (jusqu'à 50 000 €).
+            </p>
+
+            <!-- Exemple chiffré concret -->
+            <div class="exemple-box">
+                <h3>💡 Exemple concret · Famille Dupont, Marseille</h3>
+                <p class="ex-subtitle">Maison 110 m² · Revenus modestes · Remplacement chaudière fioul</p>
+                <div class="exemple-line">
+                    <span class="ex-label">Prix d'une PAC air/eau (matériel + pose)</span>
+                    <span class="ex-value">14 000 €</span>
+                </div>
+                <div class="exemple-line">
+                    <span class="ex-label">— MaPrimeRénov'</span>
+                    <span class="ex-value negative">- 4 000 €</span>
+                </div>
+                <div class="exemple-line">
+                    <span class="ex-label">— Prime CEE (coup de pouce chauffage)</span>
+                    <span class="ex-value negative">- 5 500 €</span>
+                </div>
+                <div class="exemple-line">
+                    <span class="ex-label">— Éco-PTZ étalé sur 15 ans (sans intérêts)</span>
+                    <span class="ex-value negative">- 4 500 €</span>
+                </div>
+                <div class="exemple-line total">
+                    <span class="ex-label">Reste à charge immédiat</span>
+                    <span class="ex-value">0 €</span>
+                </div>
+                <p style="text-align:center; font-size:0.88rem; color:#4B5563; margin-top:1rem;">
+                    Simulation à titre indicatif. Votre situation peut donner droit à plus ou moins d'aides — notre simulateur vous donne le chiffre exact.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMMENT ÇA MARCHE - 5 étapes -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-4">
+                <span class="badge-dark d-inline-block mb-2">Un parcours simplifié</span>
+                <h2 class="section-title">Comment ça marche ?</h2>
+                <p style="color:#4B5563; font-size:1.05rem; max-width: 650px; margin: 1rem auto 0;">
+                    De votre simulation à la mise en service de votre PAC, on s'occupe de tout. Vous n'avancez aucun frais.
+                </p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-step">
+                    <div class="ts-num">1</div>
+                    <h4>Simulation en ligne</h4>
+                    <p>Vous répondez à 5 questions sur votre logement.</p>
+                    <span class="ts-duration">2 min</span>
+                </div>
+                <div class="timeline-step">
+                    <div class="ts-num">2</div>
+                    <h4>Appel conseiller</h4>
+                    <p>Un expert valide votre éligibilité et calcule vos aides.</p>
+                    <span class="ts-duration">Sous 24h</span>
+                </div>
+                <div class="timeline-step">
+                    <div class="ts-num">3</div>
+                    <h4>Visite technique</h4>
+                    <p>Étude gratuite à domicile par un technicien RGE.</p>
+                    <span class="ts-duration">Gratuit</span>
+                </div>
+                <div class="timeline-step">
+                    <div class="ts-num">4</div>
+                    <h4>Dossier aides</h4>
+                    <p>On monte vos dossiers MaPrimeRénov' et CEE pour vous.</p>
+                    <span class="ts-duration">0 € avancé</span>
+                </div>
+                <div class="timeline-step">
+                    <div class="ts-num">5</div>
+                    <h4>Installation</h4>
+                    <p>Pose en 1 à 2 jours par nos artisans certifiés.</p>
+                    <span class="ts-duration">Garantie</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- TÉMOIGNAGES CLIENTS -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-4">
+                <span class="badge-dark d-inline-block mb-2">Ils nous ont fait confiance</span>
+                <h2 class="section-title">Ce que disent nos clients</h2>
+                <p style="color:#4B5563; font-size:1.05rem; margin-top: 1rem;">
+                    <span style="color:#faa400; font-size:1.2rem; letter-spacing:2px;">★★★★★</span><br>
+                    <strong>4,9/5</strong> sur 847 avis vérifiés
+                </p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="t-stars">★★★★★</div>
+                    <p class="t-quote">Nous avions une vieille chaudière fioul qui nous coûtait une fortune. L'équipe a tout pris en charge, des aides à la pose. Aucun frais à avancer, on n'en revenait pas.</p>
+                    <div class="t-author">
+                        <div class="t-avatar">MR</div>
+                        <div class="t-info">
+                            <div class="t-name">Martine R.</div>
+                            <div class="t-city">Aubagne (13)</div>
+                        </div>
+                    </div>
+                    <div class="t-saving">💰 Économie : 1 340 € / an</div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="t-stars">★★★★★</div>
+                    <p class="t-quote">Très bonne surprise : technicien à l'heure, propre, professionnel. Installation en 2 jours, la maison est bien plus confortable qu'avec l'ancienne chaudière gaz.</p>
+                    <div class="t-author">
+                        <div class="t-avatar">JP</div>
+                        <div class="t-info">
+                            <div class="t-name">Jean-Paul B.</div>
+                            <div class="t-city">Nîmes (30)</div>
+                        </div>
+                    </div>
+                    <div class="t-saving">💰 Économie : 1 580 € / an</div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="t-stars">★★★★★</div>
+                    <p class="t-quote">J'étais sceptique au début, j'avais peur d'une arnaque. Tout a été clair, contrat précis, aides versées comme annoncé. Je recommande sans hésitation.</p>
+                    <div class="t-author">
+                        <div class="t-avatar">SC</div>
+                        <div class="t-info">
+                            <div class="t-name">Sylvie C.</div>
+                            <div class="t-city">Salon-de-Provence (13)</div>
+                        </div>
+                    </div>
+                    <div class="t-saving">💰 Reste à charge : 0 €</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-4">
+                <span class="badge-dark d-inline-block mb-2">Questions fréquentes</span>
+                <h2 class="section-title">Vos questions, nos réponses</h2>
+            </div>
+
+            <div class="faq-list">
+                <details class="faq-item" open>
+                    <summary>Est-ce que la simulation est vraiment gratuite et sans engagement ?</summary>
+                    <div class="faq-body">
+                        Oui, à 100 %. La simulation en ligne, l'étude de vos aides, l'appel conseiller et la visite technique à domicile sont entièrement gratuits. Vous n'avancez aucun frais, aucune carte bancaire n'est demandée. Vous restez libre de poursuivre ou non après le devis.
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Combien je peux vraiment toucher en aides ?</summary>
+                    <div class="faq-body">
+                        Cela dépend de vos revenus, du type de chauffage remplacé et de votre logement. En moyenne, nos clients touchent entre <strong>6 500 € et 10 500 € d'aides cumulées</strong> (MaPrimeRénov' + CEE), avec en plus un Éco-PTZ à 0 % d'intérêt pour le reste à charge. Notre simulateur calcule votre montant exact en 2 minutes.
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Comment fonctionne une pompe à chaleur ?</summary>
+                    <div class="faq-body">
+                        Une pompe à chaleur air/eau capte les calories présentes dans l'air extérieur (même quand il fait froid) et les transforme en chaleur pour votre logement et votre eau chaude sanitaire. Pour 1 kWh d'électricité consommée, elle restitue 3 à 4 kWh de chaleur : c'est ce qui permet de diviser votre facture par 2 à 3.
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Combien de temps pour l'installation ?</summary>
+                    <div class="faq-body">
+                        L'installation d'une PAC se fait en général en <strong>1 à 2 jours</strong>. Le délai total entre votre simulation et la mise en service est d'environ 4 à 8 semaines, le temps de valider les dossiers d'aides (MaPrimeRénov', CEE) avec l'État.
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Suis-je éligible si je suis locataire ?</summary>
+                    <div class="faq-body">
+                        Les aides MaPrimeRénov' et CEE s'adressent principalement aux <strong>propriétaires occupants ou bailleurs</strong>. Si vous êtes locataire, l'aide doit être demandée par votre propriétaire. Notre conseiller peut vous accompagner pour monter le dossier avec lui.
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Quelle marque de PAC installez-vous ?</summary>
+                    <div class="faq-body">
+                        Nous installons uniquement des marques européennes reconnues (<strong>Atlantic, Daikin, Mitsubishi, De Dietrich</strong>) avec garantie constructeur de 5 à 10 ans. Le choix précis du modèle dépend de la surface de votre logement et de votre besoin en eau chaude — il est défini lors de la visite technique gratuite.
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Et si je change d'avis après le devis ?</summary>
+                    <div class="faq-body">
+                        Vous disposez d'un <strong>délai de rétractation de 14 jours</strong> à compter de la signature du devis, conformément à la loi. Aucun engagement avant cette signature, et aucun frais en cas de rétractation.
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Quelles garanties après l'installation ?</summary>
+                    <div class="faq-body">
+                        Vous bénéficiez de la <strong>garantie décennale</strong> sur la pose (10 ans), de la garantie biennale sur les équipements (2 ans) et de la garantie constructeur du matériel (jusqu'à 10 ans). Nous proposons également un contrat d'entretien annuel pour optimiser la durée de vie de votre PAC.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section (renforcée) -->
     <section class="py-5" style="background: var(--primary-xdark); position: relative; overflow: hidden; border-bottom: 2px solid var(--primary-dark);">
         <div class="container text-center" style="position: relative; z-index: 2; padding: 4rem 0;">
             <h2 style="color: #FFF; font-size: 2.8rem; margin-bottom: 1rem; font-weight: 800; font-family: var(--font-heading); letter-spacing: -1px;">Prêt à réduire vos factures ?</h2>
             <p style="color: #9CA3AF; font-size: 1.2rem; margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">Testez votre éligibilité aux aides de l'État en moins de 2 minutes et obtenez une estimation gratuite pour votre Pompe à Chaleur.</p>
             <a href="#sim-top" class="btn btn-submit" style="max-width: 400px; display: inline-block; font-size: 1.3rem; padding: 1.2rem 2rem;">Tester mon éligibilité →</a>
+            <div style="margin-top: 1.5rem; font-size: 0.9rem; color: #9CA3AF;">
+                🔒 Données 100% sécurisées · ⚡ Réponse sous 24h · ✅ Sans engagement
+            </div>
         </div>
     </section>
 
-    <!-- NOUS SOMMES A VOS COTES -->
+    <!-- NOTRE ENGAGEMENT -->
     <section class="py-5 bg-light">
         <div class="container text-center">
-            <h2 class="section-title mb-5">L'entreprise Ronald 26 x YW consulting : Nous sommes à vos côtés</h2>
+            <span class="badge-dark d-inline-block mb-2">Notre engagement</span>
+            <h2 class="section-title">Une équipe locale qui vous accompagne de A à Z</h2>
+            <p style="color:#4B5563; max-width: 720px; margin: 1.5rem auto 2.5rem; font-size: 1.05rem;">
+                Ronald 26 x YW consulting est une entreprise familiale spécialisée dans la rénovation énergétique.
+                Nous intervenons sur tout le bassin méditerranéen et accompagnons chaque foyer dans son projet de pompe à chaleur :
+                de la simulation initiale jusqu'à la mise en service, en gérant pour vous l'intégralité des dossiers d'aides.
+            </p>
 
-            <div class="grid-3">
+            <div class="grid-3" style="max-width: 900px; margin: 0 auto;">
                 <div class="step-card" style="padding-top:2rem;">
-                    <h3 style="color:var(--primary);">Pour les particuliers propriétaires</h3>
-                    <p style="color:#4B5563;">Que vous souhaitiez améliorer le confort de votre maison ou augmenter sa
-                        valeur grâce à une meilleure performance énergétique, Ronald 26 x YW consulting est le
-                        partenaire idéal pour
-                        transformer votre vision en réalité.</p>
+                    <h3 style="color:var(--primary); font-size:1.15rem;">🤝 Engagement transparence</h3>
+                    <p style="color:#4B5563; font-size:0.95rem;">Devis clair, prix détaillés, aucun frais caché. Vous savez exactement ce que vous payez avant la signature.</p>
                 </div>
                 <div class="step-card" style="padding-top:2rem;">
-                    <h3 style="color:var(--primary);">Pour les copropriétés et syndics dès 2024</h3>
-                    <p style="color:#4B5563;">Préparez-vous à révolutionner les parties communes avec des solutions
-                        d’isolation optimales. Ronald 26 x YW consulting élargit ses services pour répondre aux besoins
-                        spécifiques des
-                        résidences collectives.</p>
+                    <h3 style="color:var(--primary); font-size:1.15rem;">🛠️ Artisans certifiés RGE</h3>
+                    <p style="color:#4B5563; font-size:0.95rem;">Nos techniciens sont RGE Qualibat, condition obligatoire pour débloquer vos aides de l'État.</p>
                 </div>
-            </div>
-            <div class="mt-4">
-                <strong>Particulier ou syndic, passez au vert dès maintenant !</strong><br>
-                Ronald 26 x YW consulting intervient sur tout le bassin méditerranéen ainsi que sur toute la France.
-                <br>Intervention
-                rapide et efficace, garantissant une proximité sans pareil.
+                <div class="step-card" style="padding-top:2rem;">
+                    <h3 style="color:var(--primary); font-size:1.15rem;">📞 SAV réactif</h3>
+                    <p style="color:#4B5563; font-size:0.95rem;">Un interlocuteur unique de votre simulation à 10 ans après la pose. Garantie décennale incluse.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Foter Agences -->
-    <footer class="main-footer" style="padding-top: 2rem;">
+    <!-- Footer complet -->
+    <footer class="main-footer">
         <div class="container">
-            <div class="text-center mb-5">
-                <h2 style="color:#FFF; font-size:2rem; margin-bottom: 0.5rem;">Ronald 26 x YW consulting à votre service
-                </h2>
-                <h3 style="color:var(--secondary); font-size:2.5rem;">+33 6 99 32 24 77</h3>
+            <div class="text-center mb-4">
+                <h2 style="color:#FFF; font-size:1.8rem; margin-bottom: 0.5rem;">Une question ? Parlons-en directement.</h2>
+                <h3 class="phone-large" style="color:var(--secondary); font-size:2.3rem; margin: 0.5rem 0 1rem;">
+                    <a href="tel:+33699322477" style="color:var(--secondary);">+33 6 99 32 24 77</a>
+                </h3>
+                <p style="color:#9CA3AF; font-size:0.95rem;">Du lundi au vendredi · 9h - 19h · Appel gratuit</p>
             </div>
 
-            <!--<div class="grid-4"
-                style="border-top:1px solid #374151; border-bottom:1px solid #374151; padding: 2rem 0; margin-bottom: 2rem;">
+            <div class="footer-grid-real">
                 <div>
-                    <h3 style="color:#FFF; font-size:1.1rem;">📍 Agence de Cannes</h3>
-                    <p>131 Boulevard de La République<br>06400 Cannes</p>
-                    <p>04.22.13.13.26<br>07.44.93.47.03</p>
+                    <h4>Ronald 26 x YW consulting</h4>
+                    <p>Spécialiste de la rénovation énergétique sur le bassin méditerranéen et toute la France. Pompes à chaleur, isolation, accompagnement administratif des aides de l'État.</p>
+                    <div class="footer-certifs">
+                        <span class="footer-certif-badge">RGE Qualibat</span>
+                        <span class="footer-certif-badge">Partenaire MaPrimeRénov'</span>
+                        <span class="footer-certif-badge">Garantie décennale</span>
+                    </div>
                 </div>
                 <div>
-                    <h3 style="color:#FFF; font-size:1.1rem;">📍 Agence du Cannet</h3>
-                    <p>98 bd Sadi Carnot<br>06110 Le Cannet</p>
-                    <p>04.48.26.13.13<br>07.44.93.47.03</p>
+                    <h4>Nos services</h4>
+                    <a href="#sim-top">Pompe à chaleur air/eau</a>
+                    <a href="#sim-top">Remplacement chaudière fioul</a>
+                    <a href="#sim-top">Remplacement chaudière gaz</a>
+                    <a href="#sim-top">Simulation d'aides</a>
+                    <a href="#sim-top">Étude technique gratuite</a>
                 </div>
                 <div>
-                    <h3 style="color:#FFF; font-size:1.1rem;">📍 Agence de Nice</h3>
-                    <p>Régie Ronald26 Eco Bio Habitat.fr<br>470 promenade des anglais, 06203 Nice</p>
-                    <p>04.22.13.13.26<br>07.44.93.47.03</p>
+                    <h4>Contact</h4>
+                    <p>📞 <a href="tel:+33699322477" style="color:#FFF; font-weight:600;">+33 6 99 32 24 77</a></p>
+                    <p>✉️ contact@ronald26-yw.fr</p>
+                    <p>📍 Bassin méditerranéen<br>Intervention sur toute la France</p>
                 </div>
                 <div>
-                    <h3 style="color:#FFF; font-size:1.1rem;">📍 Agence de Bagneux</h3>
-                    <p>108 avenue Aristide Briand<br>92220 Bagneux</p>
-                    <p>01.44.75.48.35<br>07.44.93.47.03</p>
+                    <h4>Informations</h4>
+                    <a href="#" id="link-mentions">Mentions légales</a>
+                    <a href="#" id="link-confidentialite">Politique de confidentialité</a>
+                    <a href="#" id="link-cgv">Conditions générales</a>
+                    <a href="#" id="link-cookies">Gestion des cookies</a>
                 </div>
             </div>
 
-            <div class="d-flex justify-content-between" style="font-size:0.85rem; flex-wrap:wrap; gap:1rem;">
-                <div style="display:flex; gap: 1rem;">
-                    <a href="#">Politique de confidentialité</a> |
-                    <a href="#">Mentions légales</a> |
-                    <a href="#">CGV</a>
+            <div class="footer-legal-row">
+                <div>
+                    © 2026 Ronald 26 x YW consulting · SIRET : XX XXX XXX XXXXX · TVA : FRXXXXXXXXXX
                 </div>
-                <div>Facebook | Youtube</div>
-                <div>© 2026 Ronald 26 x YW consulting</div>
+                <div>
+                    Site édité conformément à la loi du 21 juin 2004 pour la confiance dans l'économie numérique.
+                </div>
             </div>
         </div>
-        -->
     </footer>
+
+    <!-- Sticky CTA mobile -->
+    <div class="sticky-cta">
+        <a href="tel:+33699322477" class="sc-call" aria-label="Appeler">📞</a>
+        <a href="#sim-top" class="sc-cta">Vérifier mes aides</a>
+    </div>
 
     <!-- Bandeau Cookie RGPD -->
     <div id="cookie-banner"
